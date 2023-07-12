@@ -1,5 +1,6 @@
 package com.example.pipefywebhook
 
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController
 class WebhookController : LoggerUtil() {
 
     @PostMapping
-    fun loggingCardMovedInfo(@RequestBody card: Card) : ResponseEntity<Any>{
+    fun loggingCardMovedInfo(@RequestBody card: Card) : ResponseEntity<Card>{
         log("Nome:${card.name} Email:${card.email} Ocupação:${card.occupation}")
-        return ResponseEntity.ok().build()
+        return ResponseEntity(card, HttpStatus.OK)
     }
 }
 
