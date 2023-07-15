@@ -1,5 +1,6 @@
 package com.example.pipefywebhook
 
+import lombok.extern.slf4j.Slf4j
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -9,17 +10,14 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/webhook")
-class WebhookController : LoggerUtil() {
+@Slf4j
+class WebhookController() {
 
     @PostMapping
     fun loggingCardMovedInfo(@RequestBody card: Card) : ResponseEntity<Card>{
-        log("Nome:${card.name} Email:${card.email} Ocupação:${card.occupation}")
+        try {
+            logger().info("${card.name} ${card.email} ${card.occupation}")
+        } catch (e: Exception) { throw e }
         return ResponseEntity(card, HttpStatus.OK)
     }
 }
-
-data class Card(
-    val name: String,
-    val email: String,
-    val occupation: String,
-)
