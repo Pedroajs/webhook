@@ -1,4 +1,4 @@
-package com.example.pipefywebhook
+package com.example.pipefywebhook.configuration
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

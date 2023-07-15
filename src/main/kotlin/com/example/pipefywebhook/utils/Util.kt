@@ -1,4 +1,4 @@
-package com.example.pipefywebhook
+package com.example.pipefywebhook.utils
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
