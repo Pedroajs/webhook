@@ -14,10 +14,4 @@ data class CardDTO(
         email = email,
         occupation =occupation,
     )
-
-    fun toModel() = Card(
-        name = name,
-        email = email,
-        occupation = occupation,
-    )
 }
